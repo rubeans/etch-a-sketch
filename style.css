@@ -1,0 +1,32 @@
+* {
+    margin    : 0;
+    box-sizing: border-box;
+}
+
+body {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    height         : 100vh;
+    gap            : 20px;
+}
+
+.header {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    width          : 50vw;
+}
+
+.container {
+    display   : grid;
+    width     : 50vw;
+    height    : 82vh;
+    z-index   : 1;
+    box-shadow: 0 0 10px black;
+}
+
+.square:hover {
+    background-color: black;
+}
