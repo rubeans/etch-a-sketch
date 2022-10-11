@@ -1,3 +1,5 @@
+/* TODO - add a new font /  choose new colors*/
+
 * {
     margin    : 0;
     box-sizing: border-box;
@@ -10,23 +12,42 @@ body {
     align-items    : center;
     height         : 100vh;
     gap            : 20px;
+    background     : linear-gradient(45deg, rgb(99, 97, 97), rgb(52, 58, 52), rgb(54, 54, 49), rgb(94, 94, 97));
+    color          : rgb(224, 224, 224);
 }
 
 .header {
     display        : flex;
     justify-content: space-between;
     align-items    : center;
-    width          : 50vw;
+    width          : 40vw;
+    margin-top     : 20px;
 }
 
 .container {
-    display   : grid;
-    width     : 50vw;
-    height    : 82vh;
-    z-index   : 1;
-    box-shadow: 0 0 10px black;
+    display         : grid;
+    width           : 40vw;
+    height          : 80vh;
+    z-index         : 1;
+    box-shadow      : 0 0 10px rgb(204, 201, 201);
+    background-color: white;
 }
 
 .square:hover {
     background-color: black;
+}
+
+.color-btns {
+    width          : 40vw;
+    display        : flex;
+    justify-content: space-between;
+}
+
+footer {
+    margin: 20px 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color          : rgb(224, 224, 224);
 }

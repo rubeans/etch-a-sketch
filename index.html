@@ -14,18 +14,31 @@
 
   <header class="header">
     <h1 class="">Etch-A-Sketch</h1>
-    <label>Grid: <input type="number" name="num" value="16" min="2" max="64"></label>
+    <div class="grid-btns">
+      <button class="sixteen grid-btn">16x16</button>
+      <button class="thirty-two grid-btn">32x32</button>
+      <button class="sixty-four grid-btn">64x64</button>
+      <button class="hundred-twenty-eight grid-btn">128x128</button>
+    </div>
   </header>
 
   <div class="container"></div>
 
-  <div class="buttons">
-    <button>Reset</button>
-    <button>RGB</button>
-    <button>Default (Black)</button>
+  <div class="color-btns">
+    <div class="colors">
+      <!-- TODO  add color picker  -->
+      <button class="rgb">RGB</button>
+    </div>
+    <div class="clear">
+      <button class="eraser">Eraser</button>
+      <button class="reset">Reset</button>
+    </div>
   </div>
 
-
+  <footer>Copyright © <script>
+      document.write(new Date().getFullYear())
+    </script><a href="http://github.com/rubeans" target="_blank"> Rubens Guilherme</a>
+  </footer>
 
   <!-- JAVASCRIPT -->
   <script src="script.js"></script>
