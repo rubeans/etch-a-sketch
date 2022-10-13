@@ -4,7 +4,7 @@ const defaultGrid = 16
 const defaultColor = "#000"
 let currentColor;
 
-// CREATE THE GRIDS
+// CREATE GRIDS
 const createDivs = (cols, rows) => {
     for (let i = 1; i <= (cols * rows); i++) {
         const div = document.createElement("div")
@@ -14,16 +14,17 @@ const createDivs = (cols, rows) => {
     }
 }
 
-// REMOVE THE GRIDS
+// REMOVE GRIDS
 const removeDivs = () => {
     // TODO 
 }
 
 // DEFAULT SETTINGS
 const defaultSettings = () => {
-    createDivs(defaultGrid, defaultGrid)
-    //TODO - make 16x16 the default scale when load the page
-    // TODO - NEED TO FINISH
+    container.addEventListener("mouseenter", ()=>{
+        createDivs(defaultGrid, defaultGrid)
+        pen()
+    })
 }
 
 // PEN
@@ -42,3 +43,7 @@ gridBtn.forEach(btn => btn.addEventListener("click", () => {
     createDivs(customGrid, customGrid)
     pen()
 }))
+
+
+
+window.onload(defaultSettings)
