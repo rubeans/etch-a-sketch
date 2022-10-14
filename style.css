@@ -2,82 +2,81 @@
 
 /* GLOBAL */
 * {
-    margin: 0;
-    box-sizing: border-box;
+    margin     : 0;
+    box-sizing : border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 /* BODY */
 body {
-    display: flex;
-    flex-direction: column;
+    display        : flex;
+    flex-direction : column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    gap: 5px;
-    background: linear-gradient(45deg, #2c2c2c, #202020, #202020, #2c2c2c);
-    color: #e0e0e0;
+    align-items    : center;
+    height         : 100vh;
+    background     : linear-gradient(45deg, #2c2c2c, #202020, #202020, #2c2c2c);
+    color          : #e0e0e0;
 }
 
 /* HEADER */
 .header {
-    display: flex;
+    display        : flex;
     justify-content: space-between;
-    align-items: center;
-    width: 45vw;
-    margin-top: 20px;
+    align-items    : center;
+    width          : 45vw;
+    margin-top     : 20px;
 }
 
 /* CONTAINERS */
 .container {
-    display: grid;
-    width: 45vw;
-    height: 80vh;
-    z-index: 1;
-    box-shadow: 0 0 10px #979797;
-    background-color: #ffffff;
-}
-
-.grid-box:hover {
-    background-color: black;
+    display         : grid;
+    width           : 45vw;
+    height          : 80vh;
+    z-index         : 1;
+    box-shadow      : 0 0 10px #979797;
+    background-color: #e0e0e0;
 }
 
 /* SETTINGS */
 .settings {
-    width: 45vw;
-    display: flex;
-    justify-content: space-between;
+    width          : 45vw;
+    display        : flex;
+    justify-content: flex-start;
+    align-items    : center;
+    gap            : 4px;
+    margin-top     : 7px;
 }
 
 /* BUTTONS */
 button {
-    padding: 8px;
+    padding         : 7px;
     background-color: #e0e0e0;
-    color: #252525;
-    border: none;
-    border-radius: 2px;
+    color           : #252525;
+    border          : none;
+    border-radius   : 2px;
 }
 
 button:hover {
     background-color: #252525;
-    color: #e0e0e0;
-    cursor: pointer;
+    color           : #e0e0e0;
+    cursor          : pointer;
 }
+
 
 /* FOOTER */
 footer {
-    margin-top: 20px;
+    margin-top      : 30px;
     background-color: #e0e0e0;
-    color: #252525;
-    width: 100vw;
-    border-radius: 2px;
-    text-align: center;
-    padding: 8px;
+    color           : #252525;
+    width           : 100vw;
+    border-radius   : 2px;
+    text-align      : center;
+    padding         : 8px;
 }
 
 footer a {
     text-decoration: none;
-    color: #252525;
+    color          : #252525;
 }
 
 footer a:hover {

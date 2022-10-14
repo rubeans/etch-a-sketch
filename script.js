@@ -1,7 +1,9 @@
+// DECLARE VARIABLES
 const container = document.querySelector(".container")
 const gridBtn = document.querySelectorAll(".grid-btn")
 const defaultGrid = 16
 const defaultColor = "#000"
+const eraser = "e0e0e0"
 let currentColor;
 
 // CREATE GRIDS
@@ -14,19 +16,6 @@ const createDivs = (cols, rows) => {
     }
 }
 
-// REMOVE GRIDS
-const removeDivs = () => {
-    // TODO 
-}
-
-// DEFAULT SETTINGS
-const defaultSettings = () => {
-    container.addEventListener("mouseenter", ()=>{
-        createDivs(defaultGrid, defaultGrid)
-        pen()
-    })
-}
-
 // PEN
 const pen = () => {
     const gridBox = document.querySelectorAll(".grid-box")
@@ -36,14 +25,24 @@ const pen = () => {
     }))
 }
 
+// DEFAULT SETTINGS
+const defaultSettings = () => {
+    createDivs(defaultGrid, defaultGrid)
+    pen()
+}
+
+// REMOVE GRIDS
+const removeDivs = () => {
+    const gridBox = document.querySelectorAll(".grid-box")
+    gridBox.forEach(box => container.removeChild(box))
+}
+
 // CHOOSE THE GRID
 gridBtn.forEach(btn => btn.addEventListener("click", () => {
     const customGrid = btn.value
-    //TODO removeDivs()
+    removeDivs()
     createDivs(customGrid, customGrid)
     pen()
 }))
 
-
-
-window.onload(defaultSettings)
+window.onload(defaultSettings())
