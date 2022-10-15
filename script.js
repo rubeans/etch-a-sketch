@@ -1,12 +1,14 @@
 // DECLARE VARIABLES
 const container = document.querySelector(".container")
 const gridBtn = document.querySelectorAll(".grid-btn")
+const rgb = document.querySelector(".rgb")
+const eraser = document.querySelector(".eraser")
+const reset = document.querySelector(".reset")
 const defaultGrid = 16
 const defaultColor = "#000"
-const eraser = "e0e0e0"
-let currentColor;
+const eraserColor = "e0e0e0"
 
-// CREATE GRIDS
+// CREATE GRID
 const createDivs = (cols, rows) => {
     for (let i = 1; i <= (cols * rows); i++) {
         const div = document.createElement("div")
@@ -16,33 +18,68 @@ const createDivs = (cols, rows) => {
     }
 }
 
+// REMOVE GRID
+const removeDivs = () => {
+    const gridBox = document.querySelectorAll(".grid-box")
+    gridBox.forEach(box => container.removeChild(box))
+}
+
+// CHOOSE GRID
+gridBtn.forEach(btn => btn.addEventListener("click", () => {
+    const customGrid = btn.value
+    removeDivs()
+    createDivs(customGrid, customGrid)
+    defaultPenColor()
+}))
+
 // PEN
-const pen = () => {
+const pen = (color) => {
     const gridBox = document.querySelectorAll(".grid-box")
     gridBox.forEach(box => box.addEventListener("mouseover", () => {
-        currentColor = defaultColor
-        box.style.backgroundColor = `${currentColor}`
+        box.style.backgroundColor = `${color}`
+    }))
+}
+
+// GENERATE RANDOM COLORS
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+// CHOOSE COLORS
+// TODO - ADD FUNCTIONALITY TO RGB AND ERASER BUTTON
+  
+// RESET GRID
+reset.addEventListener("click", () =>{
+    removeDivs()
+    if(container.style.gridTemplateColumns == "repeat(16, 1fr)" && container.style.gridTemplateRows == "repeat(16, 1fr)" ){
+        createDivs(defaultGrid, defaultGrid)
+    } else if(container.style.gridTemplateColumns == "repeat(32, 1fr)" && container.style.gridTemplateRows == "repeat(32, 1fr)" ){
+        createDivs(32, 32)
+    } else if(container.style.gridTemplateColumns == "repeat(64, 1fr)" && container.style.gridTemplateRows == "repeat(64, 1fr)" ){
+        createDivs(64, 64)
+    } else{
+        createDivs(128, 128)
+    }
+    defaultPenColor()
+})
+
+// DEFAULT PEN COLOR
+const defaultPenColor = () => {
+    const gridBox = document.querySelectorAll(".grid-box")
+    gridBox.forEach(box => box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = `${defaultColor}`
     }))
 }
 
 // DEFAULT SETTINGS
 const defaultSettings = () => {
     createDivs(defaultGrid, defaultGrid)
-    pen()
+    defaultPenColor()
 }
-
-// REMOVE GRIDS
-const removeDivs = () => {
-    const gridBox = document.querySelectorAll(".grid-box")
-    gridBox.forEach(box => container.removeChild(box))
-}
-
-// CHOOSE THE GRID
-gridBtn.forEach(btn => btn.addEventListener("click", () => {
-    const customGrid = btn.value
-    removeDivs()
-    createDivs(customGrid, customGrid)
-    pen()
-}))
 
 window.onload(defaultSettings())
