@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   <!-- FONTAWESOME -->
@@ -14,7 +14,7 @@
   <title>Etch-A-Sketch</title>
 </head>
 
-<body>
+<body onload="defaultSettings()">
 
   <header class="header">
     <h1 class="">Etch-A-Sketch</h1>
@@ -29,14 +29,14 @@
   <div class="container"></div>
 
   <div class="settings">
-    <button class="rgb" value="rgb">RGB</button>
-    <button class="eraser" value="eraser">Eraser</button>
-    <button class="reset">Reset</button>
+    <button class="rgb" onclick="rgb()">RGB</button>
+    <button class="eraser" onclick="eraser()">Eraser</button>
+    <button class="reset" onclick="reset()">Reset</button>
   </div>
 
   <footer>Copyright © <script>
       document.write(new Date().getFullYear())
-    </script><a href="http://github.com/rubeans" target="_blank"> Rubens Guilherme  <i class="fa-brands fa-github"></i></a>
+    </script><a href="https://github.com/rubeans/etch-a-sketch" target="_blank"> Rubens Guilherme  <i class="fa-brands fa-github"></i></a>
   </footer>
 
   <!-- JAVASCRIPT -->

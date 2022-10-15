@@ -1,12 +1,9 @@
 // DECLARE VARIABLES
 const container = document.querySelector(".container")
 const gridBtn = document.querySelectorAll(".grid-btn")
-const rgb = document.querySelector(".rgb")
-const eraser = document.querySelector(".eraser")
-const reset = document.querySelector(".reset")
 const defaultGrid = 16
 const defaultColor = "#000"
-const eraserColor = "e0e0e0"
+const eraserColor = "#e0e0e0"
 
 // CREATE GRID
 const createDivs = (cols, rows) => {
@@ -32,42 +29,6 @@ gridBtn.forEach(btn => btn.addEventListener("click", () => {
     defaultPenColor()
 }))
 
-// PEN
-const pen = (color) => {
-    const gridBox = document.querySelectorAll(".grid-box")
-    gridBox.forEach(box => box.addEventListener("mouseover", () => {
-        box.style.backgroundColor = `${color}`
-    }))
-}
-
-// GENERATE RANDOM COLORS
-function randomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
-// CHOOSE COLORS
-// TODO - ADD FUNCTIONALITY TO RGB AND ERASER BUTTON
-  
-// RESET GRID
-reset.addEventListener("click", () =>{
-    removeDivs()
-    if(container.style.gridTemplateColumns == "repeat(16, 1fr)" && container.style.gridTemplateRows == "repeat(16, 1fr)" ){
-        createDivs(defaultGrid, defaultGrid)
-    } else if(container.style.gridTemplateColumns == "repeat(32, 1fr)" && container.style.gridTemplateRows == "repeat(32, 1fr)" ){
-        createDivs(32, 32)
-    } else if(container.style.gridTemplateColumns == "repeat(64, 1fr)" && container.style.gridTemplateRows == "repeat(64, 1fr)" ){
-        createDivs(64, 64)
-    } else{
-        createDivs(128, 128)
-    }
-    defaultPenColor()
-})
-
 // DEFAULT PEN COLOR
 const defaultPenColor = () => {
     const gridBox = document.querySelectorAll(".grid-box")
@@ -82,4 +43,43 @@ const defaultSettings = () => {
     defaultPenColor()
 }
 
-window.onload(defaultSettings())
+// GENERATE RANDOM COLORS
+function randomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+// RGB
+const rgb = () => {
+    const gridBox = document.querySelectorAll(".grid-box")
+    gridBox.forEach(box => box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = `${randomColor()}`
+    }))
+}
+
+// ERASER
+const eraser = () => {
+    const gridBox = document.querySelectorAll(".grid-box")
+    gridBox.forEach(box => box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = `${eraserColor}`
+    }))
+}
+
+// RESET GRID
+    const reset = () =>{
+        removeDivs()
+        if(container.style.gridTemplateColumns == "repeat(16, 1fr)" && container.style.gridTemplateRows == "repeat(16, 1fr)" ){
+            createDivs(defaultGrid, defaultGrid)
+        } else if(container.style.gridTemplateColumns == "repeat(32, 1fr)" && container.style.gridTemplateRows == "repeat(32, 1fr)" ){
+            createDivs(32, 32)
+        } else if(container.style.gridTemplateColumns == "repeat(64, 1fr)" && container.style.gridTemplateRows == "repeat(64, 1fr)" ){
+            createDivs(64, 64)
+        } else{
+            createDivs(128, 128)
+        }
+        defaultPenColor()
+    }
