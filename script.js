@@ -48,10 +48,10 @@ function randomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-  }
+}
 
 // RGB
 const rgb = () => {
@@ -70,16 +70,16 @@ const eraser = () => {
 }
 
 // RESET GRID
-    const reset = () =>{
-        removeDivs()
-        if(container.style.gridTemplateColumns == "repeat(16, 1fr)" && container.style.gridTemplateRows == "repeat(16, 1fr)" ){
-            createDivs(defaultGrid, defaultGrid)
-        } else if(container.style.gridTemplateColumns == "repeat(32, 1fr)" && container.style.gridTemplateRows == "repeat(32, 1fr)" ){
-            createDivs(32, 32)
-        } else if(container.style.gridTemplateColumns == "repeat(64, 1fr)" && container.style.gridTemplateRows == "repeat(64, 1fr)" ){
-            createDivs(64, 64)
-        } else{
-            createDivs(128, 128)
-        }
-        defaultPenColor()
+const reset = () => {
+    removeDivs()
+    if (container.style.gridTemplateColumns == "repeat(16, 1fr)" && container.style.gridTemplateRows == "repeat(16, 1fr)") {
+        createDivs(defaultGrid, defaultGrid)
+    } else if (container.style.gridTemplateColumns == "repeat(32, 1fr)" && container.style.gridTemplateRows == "repeat(32, 1fr)") {
+        createDivs(32, 32)
+    } else if (container.style.gridTemplateColumns == "repeat(64, 1fr)" && container.style.gridTemplateRows == "repeat(64, 1fr)") {
+        createDivs(64, 64)
+    } else {
+        createDivs(128, 128)
     }
+    defaultPenColor()
+}
